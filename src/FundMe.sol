@@ -25,8 +25,8 @@ contract FundMe {
     uint256 public constant MINIMUM_USD = 5 * 10 ** 18;
     address public immutable i_owner;
     address[] public s_funders;
-    mapping(address => uint256) private s_addressToAmountFunded;
-    AggregatorV3Interface private s_priceFeed;
+    mapping(address => uint256) public s_addressToAmountFunded;
+    AggregatorV3Interface public s_priceFeed;
 
     // Events (we have none!)
 
@@ -113,4 +113,19 @@ contract FundMe {
     function getPriceFeed() public view returns (AggregatorV3Interface) {
         return s_priceFeed;
     }
+
+    /**
+     * Fallback Functions
+     */
+
+    fallback() external payable {
+        fund();
+    }
+
+    receive() external payable {
+        fund();
+    }
+
+
+
 }
