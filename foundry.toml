@@ -3,6 +3,13 @@ src = "src"
 out = "out"
 libs = ["lib"]
 
+[script]
+paths = ["script/DeployFundMe.s.sol"]
+
+[rpc_endpoints]
+zkSyncTestnet = "https://testnet.era.zksync.dev"
+
+
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
 
 remappings = [
